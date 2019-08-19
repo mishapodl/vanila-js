@@ -13,13 +13,13 @@ function arrayNames(array) {
 }
 
 // Empty Array
-const name = arrayNames([]);
-name.add('Alex');
-name.add('Michael');
-name.add('Eygen');
-console.log(name.showNames());
-name.removeName('Michael');
-console.log(name.showNames());
+const emptyName = arrayNames([]);
+emptyName.add('Alex');
+emptyName.add('Michael');
+emptyName.add('Eygen');
+console.log(emptyName.showNames());
+emptyName.removeName('Michael');
+console.log(emptyName.showNames());
 console.log('-------');
 
 // Full Array
