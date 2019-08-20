@@ -1,2 +1,2 @@
-# vanila-js
+# advanced vanila-js
  
