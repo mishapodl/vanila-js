@@ -30,3 +30,18 @@ fullName.add('Kate');
 console.log(fullName.showNames());
 fullName.removeName('Sasha');
 console.log(fullName.showNames());
+
+
+
+
+obj = {
+	add: function(name, array) {
+        return array.push(name)
+    },
+	remove: function(name, array) {
+        return array.shift(name)
+    },
+	show: function(array) {
+    	return array
+	}
+}
