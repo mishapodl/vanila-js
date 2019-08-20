@@ -20,4 +20,5 @@ Magazine.prototype = Object.create(Book.prototype);
 
 const book = new Magazine('451', 'Oruel', '1975', 'Jun');
 Magazine.prototype.constructor = Magazine;
+
 console.log(book);
