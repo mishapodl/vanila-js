@@ -1,3 +1,6 @@
+/*---------------------+
+ DRAG-DROP ---- START */
+
 body {
   background-color: darksalmon;
 }
@@ -33,3 +36,6 @@ body {
 .invisible {
   display: none;
 }
+
+/*  DRAG-DROP ---- END 
+----------------------*/
