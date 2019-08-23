@@ -1,3 +1,13 @@
+// Context
+const obj = { sum: 'Sum' };
+
+function ctxClouser(a, b) {
+  console.log(`${this.sum} - ${a + b}`);
+}
+
+ctxClouser.call(obj, 10, 10);
+
+//ES5 'OOP' 
 function Book(title, auth, year) {
   this.title = title;
   this.auth = auth;
