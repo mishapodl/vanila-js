@@ -2,7 +2,7 @@
 # -------------
 1 - drag and drop
 
-2 - book list - realized on classes ES6
+2 - book list - classes ES6
 
 3 - throttle
 
