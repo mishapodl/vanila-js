@@ -1,4 +1,4 @@
-# advanced vanila-js
+# vanila-js
 # -------------
 1 - drag and drop
 
