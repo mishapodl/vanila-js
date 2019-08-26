@@ -1,41 +1,5 @@
 /*---------------------+
  DRAG-DROP ---- START */
 
-body {
-  background-color: darksalmon;
-}
-
-.fill {
-  background-image: url('http://source.unsplash.com/random/150x150');
-  position: relative;
-  width: 150px;
-  height: 150px;
-  top: 5px;
-  left: 5px;
-  cursor: pointer;  
-}
-
-.empty {
-  display: inline-block;
-  width: 160px;
-  height: 160px;
-  margin: 10px;
-  border: 3px solid salmon;
-  background-color: white;
-}
-
-.hold {
-  border: solid #ccc 4px;
-}
-
-.hovered {
-  background-color: #f4f4f4;
-  border-style: dashed;
-}
-
-.invisible {
-  display: none;
-}
-
 /*  DRAG-DROP ---- END 
 ----------------------*/
