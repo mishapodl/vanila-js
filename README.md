@@ -10,4 +10,8 @@
 
 5 - dynamic filter items from list
 
+6 - rock paper scissors
+
+7 - memory card game
+
 * other simple code
