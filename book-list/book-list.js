@@ -24,7 +24,9 @@ class UI {
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.isbn}</td>
-      <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      <td>
+        <a href="#" class="btn btn-danger btn-sm delete">X</a>
+      </td>
     `;
 
     list.appendChild(row);
@@ -39,12 +41,15 @@ class UI {
 
   // Show message status
   static showAlert(message, className) {
-    const div = document.createElement('div');
-    div.className = `alert alert-${className}`;
-    div.appendChild(document.createTextNode(message));
     const container = document.querySelector('.container');
     const form = document.querySelector('#book-form');
+    const div = document.createElement('div');
+
+    div.className = `alert alert-${className}`;
+    div.appendChild(document.createTextNode(message));
+
     container.insertBefore(div, form);
+
     // Vanish 3 sec
     setTimeout(() => {
       document.querySelector('.alert').remove();
@@ -65,15 +70,9 @@ class UI {
 // Store classL handles storages
 class Store {
   static getBooks() {
-    let books;
+    let books = localStorage.getItem('books');
 
-    if (localStorage.getItem('books') === null) {
-      books = [];
-    } else {
-      books = JSON.parse(localStorage.getItem('books'));
-    }
-
-    return books;
+    return books !== null ? JSON.parse(books) : [];
   }
 
   static addBook(book) {
@@ -131,7 +130,7 @@ document.querySelector('#book-list').addEventListener('click', e => {
   const isbn = e.target.parentElement.previousElementSibling.textContent;
 
   // Remove book from list
-  UI.deleteBook(e.target);
+  UI.removeBook(e.target);
 
   // Remove book from localstorage
   Store.removeBook(isbn);
