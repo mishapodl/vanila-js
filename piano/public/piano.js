@@ -77,9 +77,11 @@ function playSong() {
       playNote(keyMap[note.key]);
     }, note.startTime);
   });
+
 }
 
 function playNote(key) {
+  console.log(key.dataset.note);
   if (isRecording()) recordNote(key.dataset.note);
 
   const noteAudio = document.getElementById(key.dataset.note);
