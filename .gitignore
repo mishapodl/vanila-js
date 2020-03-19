@@ -2,3 +2,4 @@ node_modules
 ./piano/node_modules
 unname
 .gitignore
+piano/default.json

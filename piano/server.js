@@ -2,9 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Song = require('./models/song.js');
 const app = express();
+const mongoURI = require('./default.json').mongoURI;
 
 mongoose
-  .connect('mongodb+srv://mishapod:milka132@cluster0-fgj6y.mongodb.net/Blog', {
+  .connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -23,7 +24,6 @@ app.post('/songs', async (req, res) => {
   const song = new Song({
     notes: req.body.songNotes
   });
-
   await song.save();
 
   res.json(song);

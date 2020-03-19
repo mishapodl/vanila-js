@@ -17,19 +17,15 @@ const keyMap = [...keys].reduce((map, key) => {
   return map;
 }, {});
 
-let recordStartTime; 
+let recordStartTime;
 let songNotes = currentSong && currentSong.notes;
 
 keys.forEach(key => {
   key.addEventListener('click', () => playNote(key));
 });
 
-if (recoredBtn) {
-  recoredBtn.addEventListener('click', toggleRecording);
-}
-if (saveBtn) {
-  saveBtn.addEventListener('click', saveSong);
-}
+recoredBtn && recoredBtn.addEventListener('click', toggleRecording);
+saveBtn && saveBtn.addEventListener('click', saveSong);
 
 playBtn.addEventListener('click', playSong);
 
@@ -105,7 +101,7 @@ function recordNote(note) {
 
 function saveSong() {
   axios.post('/songs', { songNotes: songNotes }).then(res => {
-    songLink.classList.add('show')
-    songLink.href = `/songs/${res.data._id}`
-  })
+    songLink.classList.add('show');
+    songLink.href = `/songs/${res.data._id}`;
+  });
 }
