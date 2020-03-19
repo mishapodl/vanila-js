@@ -7,29 +7,27 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link
-      rel="stylesheet"
-      href="../node_modules/@fortawesome/fontawesome-free/css/all.css"
-    />
-    <script src="../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
-    <link
-      rel="stylesheet"
-      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+      const currentSong = <%- JSON.stringify(locals.song) || 'undefined' %>
+    </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   </head>
   <body>
     <a href="/" class="home">HOME</a>
-    <div style="text-align: center; display: none;">
-      <code>
-         s_d g_h_j
-            <br>
-        z_x_c_v_b_n_m
-      </code>
+    <div class="code">
+      <code><small>button is key</small><br>s_d g_h_j<br>z_x_c_v_b_n_m</code>
     </div>
     <div class="buttons">
-      <button class="record-button btn">Record</button>
+      <% if (locals.song == null) { %>
+        <button class="record-button btn">Record</button>
+        <button class="save-button btn">Save</button>
+      <% } else { %>
+        <a href="/" class="btn">Record New Song</a>
+      <% } %>
+      <button class="play-button btn <%= locals.song != null ? 'show' : '' %>">Play</button>
     </div>
+    <a href="#" class="btn song-link">View song</a>
     <div class="piano">
       <div data-note="C" class="key white"></div>
       <div data-note="Db" class="key black"></div>
@@ -45,21 +43,21 @@
       <div data-note="B" class="key white"></div>
     </div>
 
-    <audio id="C" src="notes/C.mp3"></audio>
-    <audio id="Db" src="notes/Db.mp3"><audio>
-    <audio id="D" src="notes/D.mp3"></audio>
-    <audio id="E" src="notes/E.mp3"></audio>
-    <audio id="Eb" src="notes/Eb.mp3"><audio>
-    <audio id="F" src="notes/F.mp3"></audio>
-    <audio id="Gb" src="notes/Gb.mp3"><audio>
-    <audio id="G" src="notes/G.mp3"></audio>
-    <audio id="Ab" src="notes/Ab.mp3"><audio>
-    <audio id="A" src="notes/A.mp3"></audio>
-    <audio id="Bb" src="notes/Bb.mp3"><audio>
-    <audio id="B" src="notes/B.mp3"></audio>
+    <audio id="C" src="/notes/C.mp3"></audio>
+    <audio id="Db" src="/notes/Db.mp3"><audio>
+    <audio id="D" src="/notes/D.mp3"></audio>
+    <audio id="E" src="/notes/E.mp3"></audio>
+    <audio id="Eb" src="/notes/Eb.mp3"><audio>
+    <audio id="F" src="/notes/F.mp3"></audio>
+    <audio id="Gb" src="/notes/Gb.mp3"><audio>
+    <audio id="G" src="/notes/G.mp3"></audio>
+    <audio id="Ab" src="/notes/Ab.mp3"><audio>
+    <audio id="A" src="/notes/A.mp3"></audio>
+    <audio id="Bb" src="/notes/Bb.mp3"><audio>
+    <audio id="B" src="/notes/B.mp3"></audio>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
     <script src="./piano.js"></script>
   </body>
 </html>
