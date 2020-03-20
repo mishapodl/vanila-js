@@ -1,3 +1,5 @@
+const socket = io();
+
 const dqs = node => document.querySelector(node);
 const dqsa = node => document.querySelectorAll(node);
 
@@ -77,11 +79,9 @@ function playSong() {
       playNote(keyMap[note.key]);
     }, note.startTime);
   });
-
 }
 
 function playNote(key) {
-  console.log(key.dataset.note);
   if (isRecording()) recordNote(key.dataset.note);
 
   const noteAudio = document.getElementById(key.dataset.note);
@@ -107,3 +107,7 @@ function saveSong() {
     songLink.href = `/songs/${res.data._id}`;
   });
 }
+
+socket.on('get data', res => {
+  console.log(res[res.length - 1].notes);
+});
